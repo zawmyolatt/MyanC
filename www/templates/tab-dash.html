@@ -1,0 +1,38 @@
+<ion-view title="Welcome">
+  <ion-content>
+    <div class="bar bar-header bar-assertive">
+	  <h1 class="title">Myanmar Currency Exchanger</h1>
+	</div>
+	<div class="spacer" style="height: 50px;"></div>
+	<div class="card padding">
+	  <label class="item item-input">	  
+	    <input type="text" placeholder="Enter Foreign Amount" data-ng-model="amount">
+	  </label>
+
+	  <label class="item item-input item-select">
+	    <div class="input-label">
+	      Select Currency
+	    </div>
+	    <select name="currency" data-ng-model="currency">
+	      <option  data-ng-repeat="friend in friends" value="{{friend.amount}}" data-ng-bind-html="friend.name"></option>
+	    </select>
+	  </label>
+
+
+	  <div class="item" data-ng-init="myanmar_amount=0;amount='';currency=0;">	  
+	   <span ng-bind="myanmar_amount"></span> MMK
+	  </div>
+
+	  <div class="item">	  
+	   Live Exchange Rate Status - {{ live }}
+	  </div>
+
+	  <div class="spacer" style="height: 50px;"></div>
+
+	  <button class="button button-block button-assertive" ng-click="myanmar_amount = amount * currency">
+		 Convert
+		 </button>
+	  
+	</div>
+  </ion-content>
+</ion-view>
